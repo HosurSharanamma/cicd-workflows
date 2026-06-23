@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # SPDX-FileCopyrightText: 2026 Copyright (c) Contributors to the Eclipse Foundation
 #
 # See the NOTICE file(s) distributed with this work for additional
@@ -9,13 +11,17 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-# Map file patterns to reuse annotate --style values.
-# Keys = reuse style names, values = shell glob patterns matched against basename.
-# Every file type MUST have a matching pattern - unmatched files will error.
-#
-# Downstream repos can override by committing their own .reuse/styles.toml.
+set -euo pipefail
 
-[styles]
-c = ["*.rs", "*.kt", "*.kts"]
-html = ["*.odx-*"]
-python = [".yamlfmt", "*.py", "*.pyi"]
+if [ ! -f Cargo.toml ]; then
+    exit 0
+fi
+
+# Default: --all-features --all-targets -D warnings
+# Override: pass any args to take full control (e.g. to omit --all-features):
+#   args: ["--all-targets", "--", "-D", "warnings"]
+if [ $# -gt 0 ]; then
+    exec cargo clippy --locked "$@"
+else
+    exec cargo clippy --locked --all-features --all-targets -- -D warnings
+fi

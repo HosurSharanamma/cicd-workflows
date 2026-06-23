@@ -8,14 +8,14 @@
 # https://www.apache.org/licenses/LICENSE-2.0
 #
 # SPDX-License-Identifier: Apache-2.0
-
-# Map file patterns to reuse annotate --style values.
-# Keys = reuse style names, values = shell glob patterns matched against basename.
-# Every file type MUST have a matching pattern - unmatched files will error.
-#
-# Downstream repos can override by committing their own .reuse/styles.toml.
-
-[styles]
-c = ["*.rs", "*.kt", "*.kts"]
-html = ["*.odx-*"]
-python = [".yamlfmt", "*.py", "*.pyi"]
+default: true
+# Line length - raise limit to avoid wrapping long URLs or code snippets
+MD013:
+  line_length: 1000
+# Multiple headings with the same content - only flag duplicates outside sibling sections
+MD024:
+  siblings_only: true
+# Inline HTML - allow raw HTML in Markdown
+MD033: false
+# Fenced code blocks should have a language - allow code blocks without a language tag
+MD060: false

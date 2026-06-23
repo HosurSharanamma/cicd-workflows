@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 Copyright (c) Contributors to the Eclipse Foundation
+# SPDX-FileCopyrightText: 2026 Copyright (c) Contributors to the Eclipse Foundation
 #
 # See the NOTICE file(s) distributed with this work for additional
 # information regarding copyright ownership.
@@ -8,10 +8,10 @@
 # https://www.apache.org/licenses/LICENSE-2.0
 #
 # SPDX-License-Identifier: Apache-2.0
-
-.idea/
-.vscode/
-.DS_Store
-.venv/
-uv.lock
-__pycache__/
+style_edition = "2024"
+newline_style = "Unix"
+group_imports = "StdExternalCrate"
+imports_granularity = "Crate"
+unstable_features = true
+format_strings = true
+hex_literal_case = "Upper"

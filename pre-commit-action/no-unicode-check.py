@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-# SPDX-License-Identifier: Apache-2.0
-# SPDX-FileCopyrightText: 2025 The Contributors to Eclipse OpenSOVD (see CONTRIBUTORS)
+# SPDX-FileCopyrightText: 2025 Copyright (c) Contributors to the Eclipse Foundation
 #
 # See the NOTICE file(s) distributed with this work for additional
 # information regarding copyright ownership.
@@ -9,6 +8,13 @@
 # This program and the accompanying materials are made available under the
 # terms of the Apache License Version 2.0 which is available at
 # https://www.apache.org/licenses/LICENSE-2.0
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# Dependency specification for `uv run`. See: https://peps.python.org/pep-0723
+# /// script
+# dependencies = []
+# ///
 
 import argparse
 import sys
@@ -34,9 +40,7 @@ def check_file(path, allowed_chars):
                     # Non-UTF-8 bytes are always a violation.
                     violations.append((line_number, ["<non-UTF-8>"]))
                     continue
-                bad = sorted(
-                    {c for c in text if ord(c) > 127 and c not in allowed_chars}
-                )
+                bad = sorted({c for c in text if ord(c) > 127 and c not in allowed_chars})
                 if bad:
                     violations.append((line_number, bad))
     except OSError as e:

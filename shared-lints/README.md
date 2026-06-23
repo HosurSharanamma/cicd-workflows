@@ -1,6 +1,5 @@
 <!--
-SPDX-License-Identifier: Apache-2.0
-SPDX-FileCopyrightText: 2026 The Contributors to Eclipse OpenSOVD (see CONTRIBUTORS)
+SPDX-FileCopyrightText: 2026 Copyright (c) Contributors to the Eclipse Foundation
 
 See the NOTICE file(s) distributed with this work for additional
 information regarding copyright ownership.
@@ -8,6 +7,8 @@ information regarding copyright ownership.
 This program and the accompanying materials are made available under the
 terms of the Apache License Version 2.0 which is available at
 https://www.apache.org/licenses/LICENSE-2.0
+
+SPDX-License-Identifier: Apache-2.0
 -->
 
 # Shared Clippy Lints
@@ -16,7 +17,9 @@ This directory contains shared Clippy lint configurations for Rust projects in t
 
 ## Overview
 
-The `shared-lints.toml` file defines a standardized set of Clippy lints that should be applied across all OpenSOVD Rust projects as agreed upon in the [ADR](https://github.com/eclipse-opensovd/opensovd/pull/80). These lints are automatically checked by the `pre-commit-action` to ensure consistency.
+The `shared-lints.toml` file defines a standardized set of Clippy lints that should be applied across all OpenSOVD Rust projects
+as agreed upon in the [ADR](https://github.com/eclipse-opensovd/opensovd/pull/80).
+These lints are automatically checked by the `pre-commit-action` to ensure consistency.
 
 ## Usage
 
@@ -32,6 +35,7 @@ Validates that a `Cargo.toml` file contains all lints from `shared-lints.toml` w
 This is the script used by the pre-commit-action.
 
 **Usage:**
+
 ```bash
 ./check_cargo_lints.py path/to/Cargo.toml
 ```
@@ -39,18 +43,21 @@ This is the script used by the pre-commit-action.
 **Example outputs:**
 
 ✅ **All lints present and correct:**
-```
+
+```text
 ✓ All 7 shared lints are correctly configured in Cargo.toml
 ```
 
 ❌ **Missing lints:**
-```
+
+```text
 ✗ Missing 1 lint(s) in Cargo.toml:
   - separated_literal_suffix = {'level': 'deny'}
 ```
 
 ❌ **Configuration mismatch:**
-```
+
+```text
 ✗ 1 lint(s) have different configurations:
   - unwrap_used:
       Shared: {'level': 'deny'}
