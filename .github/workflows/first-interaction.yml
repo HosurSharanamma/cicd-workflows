@@ -41,6 +41,6 @@ jobs:
             - Make sure CI checks pass before requesting a review.
             - Eclipse projects require a **DCO sign-off** on every commit:
               use `git commit -s` or add `Signed-off-by: Your Name <email>` manually.
-            - See [CONTRIBUTING.md](https://github.com/eclipse-opensovd/opensovd/blob/main/CONTRIBUTING.md) for details.
+            - See [CONTRIBUTING.md](https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}/blob/main/CONTRIBUTING.md) for details.
 
             A maintainer will review your PR shortly. Welcome to the project!
